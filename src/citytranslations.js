@@ -41,6 +41,7 @@ export const cityTranslations = {
         Aizawl: "Aizawl",
         Shillong: "Shillong",
         PortBlair: "Port Blair",
+        
 
         // Middle East
         Dubai: "Dubai",

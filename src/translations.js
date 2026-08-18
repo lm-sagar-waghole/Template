@@ -11,6 +11,7 @@ export const translations = {
             locationArrival: "Origin",
             locationDeparture: "Destination",
             gate: "Gate",
+            eta: "ETA",
             status: "Status"
         },
         status: {
@@ -35,12 +36,13 @@ export const translations = {
             locationArrival: "प्रस्थान",
             locationDeparture: "गंतव्य स्थान",
             gate: "द्वार",
+            eta: "ETA",
             status: "स्थिति"
         },
         status: {
             onTime: "समय पर",
             early: (eta) => `पहुंची ${eta}`,
-            delayed: (eta) => (eta ? `आता ${eta}` : "आता"),
+            delayed: (eta) => (eta ? `निर्धारित ${eta}` : "निर्धारित"),
             boarding: "बोर्डिंग चालू",
             gateOpen: "द्वार खुला",
             gateClosed: "द्वार बंद"
@@ -59,6 +61,7 @@ export const translations = {
             locationArrival: "मूळ स्थान",
             locationDeparture: "गंतव्य स्थान",
             gate: "द्वार",
+            eta: "ETA",
             status: "स्थिती"
         },
         status: {

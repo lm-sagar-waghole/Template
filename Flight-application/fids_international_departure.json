@@ -1,0 +1,170 @@
+[
+    {
+        "Airline": "IndiGo",
+        "Flight": "6E 1452",
+        "Time": "16:50",
+        "Origin": "Dubai",
+        "ETA": "16:35",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "Spicejet",
+        "Flight": "SG 060",
+        "Time": "17:15",
+        "Origin": "Dubai",
+        "ETA": "16:36",
+        "Status": "Early"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "AI 910",
+        "Time": "16:25",
+        "Origin": "Dubai",
+        "ETA": "16:38",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "AI 2242",
+        "Time": "17:10",
+        "Origin": "Mauritius",
+        "ETA": "16:42",
+        "Status": "Early"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "6E 1854",
+        "Time": "15:25",
+        "Origin": "Nairobi",
+        "ETA": "17:12",
+        "Status": "Delayed"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "6E 1822",
+        "Time": "17:30",
+        "Origin": "Tashkent",
+        "ETA": "17:30",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "AI 2353",
+        "Time": "17:50",
+        "Origin": "Bangkok",
+        "ETA": "17:50",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "Emirates",
+        "Flight": "EK 502",
+        "Time": "17:50",
+        "Origin": "Dubai",
+        "ETA": "17:53",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "6E 1916",
+        "Time": "17:10",
+        "Origin": "Kathmandu",
+        "ETA": "18:25",
+        "Status": "Delayed"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "6E 1116",
+        "Time": "18:40",
+        "Origin": "Dhaka",
+        "ETA": "18:40",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "AI 2275",
+        "Time": "18:50",
+        "Origin": "Colombo",
+        "ETA": "18:50",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "EY",
+        "Flight": "204",
+        "Time": "19:00",
+        "Origin": "Abu Dhabi",
+        "ETA": "19:00",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "Akasa Air",
+        "Flight": "QP 585",
+        "Time": "19:40",
+        "Origin": "Abu Dhabi",
+        "ETA": "19:40",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "UL",
+        "Flight": "143",
+        "Time": "19:45",
+        "Origin": "Colombo",
+        "ETA": "19:45",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "Emirates",
+        "Flight": "EK 508",
+        "Time": "20:25",
+        "Origin": "Dubai",
+        "ETA": "20:25",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "GF 064",
+        "Time": "20:30",
+        "Origin": "Bahrain",
+        "ETA": "20:30",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "6E 1602",
+        "Time": "20:40",
+        "Origin": "Jakarta",
+        "ETA": "20:40",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "G9 401",
+        "Time": "20:45",
+        "Origin": "Sharjah",
+        "ETA": "20:45",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "AirArabia",
+        "Flight": "VN 979",
+        "Time": "21:20",
+        "Origin": "Chi Minh City",
+        "ETA": "21:20",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "IndiGo",
+        "Flight": "SQ 424",
+        "Time": "21:50",
+        "Origin": "Singapore",
+        "ETA": "21:50",
+        "Status": "On Time"
+    },
+    {
+        "Airline": "THAI",
+        "Flight": "TG 317",
+        "Time": "22:00",
+        "Origin": "Bangkok",
+        "ETA": "22:00",
+        "Status": "On Time"
+    }
+]
