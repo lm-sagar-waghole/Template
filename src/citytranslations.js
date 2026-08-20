@@ -1,6 +1,8 @@
 export const cityTranslations = {
     en: {
+        // =========================
         // India
+        // =========================
         Delhi: "Delhi",
         Mumbai: "Mumbai",
         Bengaluru: "Bengaluru",
@@ -41,9 +43,103 @@ export const cityTranslations = {
         Aizawl: "Aizawl",
         Shillong: "Shillong",
         PortBlair: "Port Blair",
-        
 
+        // Additional Indian airport cities
+        Agra: "Agra",
+        Agatti: "Agatti",
+        Aligarh: "Aligarh",
+        Amravati: "Amravati",
+        Aurangabad: "Aurangabad",
+        Ayodhya: "Ayodhya",
+        Azamgarh: "Azamgarh",
+        Bagdogra: "Bagdogra",
+        Bareilly: "Bareilly",
+        Belagavi: "Belagavi",
+        Bhavnagar: "Bhavnagar",
+        Bidar: "Bidar",
+        Bilaspur: "Bilaspur",
+        CoochBehar: "Cooch Behar",
+        Daman: "Daman",
+        Darbhanga: "Darbhanga",
+        Deoghar: "Deoghar",
+        Dibrugarh: "Dibrugarh",
+        Dimapur: "Dimapur",
+        Diu: "Diu",
+        Durgapur: "Durgapur",
+        Gaya: "Gaya",
+        Gondia: "Gondia",
+        Gorakhpur: "Gorakhpur",
+        Gwalior: "Gwalior",
+        Ghaziabad: "Ghaziabad",
+        Hisar: "Hisar",
+        Hubballi: "Hubballi",
+        Itanagar: "Itanagar",
+        Jabalpur: "Jabalpur",
+        Jagdalpur: "Jagdalpur",
+        Jaisalmer: "Jaisalmer",
+        Jalgaon: "Jalgaon",
+        Jamnagar: "Jamnagar",
+        Jamshedpur: "Jamshedpur",
+        Jeypore: "Jeypore",
+        Jharsuguda: "Jharsuguda",
+        Jhansi: "Jhansi",
+        Jorhat: "Jorhat",
+        Kadapa: "Kadapa",
+        Kalaburagi: "Kalaburagi",
+        Kandla: "Kandla",
+        Kangra: "Kangra",
+        Kannur: "Kannur",
+        Keshod: "Keshod",
+        Khajuraho: "Khajuraho",
+        Kishangarh: "Kishangarh",
+        Kolhapur: "Kolhapur",
+        Kullu: "Kullu",
+        Kurnool: "Kurnool",
+        Kushinagar: "Kushinagar",
+        Leh: "Leh",
+        Lilabari: "Lilabari",
+        Ludhiana: "Ludhiana",
+        Madurai: "Madurai",
+        Moradabad: "Moradabad",
+        Mundra: "Mundra",
+        Mysuru: "Mysuru",
+        Nashik: "Nashik",
+        NaviMumbai: "Navi Mumbai",
+        Noida: "Noida",
+        NorthLakhimpur: "North Lakhimpur",
+        Ozar: "Ozar",
+        Pakyong: "Pakyong",
+        Pantnagar: "Pantnagar",
+        Pathankot: "Pathankot",
+        Patiala: "Patiala",
+        Pithoragarh: "Pithoragarh",
+        Porbandar: "Porbandar",
+        Puducherry: "Puducherry",
+        Raipur: "Raipur",
+        Rajahmundry: "Rajahmundry",
+        Rewa: "Rewa",
+        Rourkela: "Rourkela",
+        Rupsi: "Rupsi",
+        Salem: "Salem",
+        Saharanpur: "Saharanpur",
+        Shirdi: "Shirdi",
+        Shimla: "Shimla",
+        Shivamogga: "Shivamogga",
+        Silchar: "Silchar",
+        Sindhudurg: "Sindhudurg",
+        Solapur: "Solapur",
+        Surat: "Surat",
+        Tezu: "Tezu",
+        Thoothukudi: "Thoothukudi",
+        Tirupati: "Tirupati",
+        Tuticorin: "Tuticorin",
+        Vadodara: "Vadodara",
+        Vijayapura: "Vijayapura",
+        Warangal: "Warangal",
+
+        // =========================
         // Middle East
+        // =========================
         Dubai: "Dubai",
         "Abu Dhabi": "Abu Dhabi",
         Sharjah: "Sharjah",
@@ -55,7 +151,9 @@ export const cityTranslations = {
         Jeddah: "Jeddah",
         Dammam: "Dammam",
 
+        // =========================
         // Asia
+        // =========================
         Singapore: "Singapore",
         Bangkok: "Bangkok",
         Phuket: "Phuket",
@@ -81,7 +179,9 @@ export const cityTranslations = {
         Tokyo: "Tokyo",
         Osaka: "Osaka",
 
+        // =========================
         // Europe
+        // =========================
         London: "London",
         Manchester: "Manchester",
         Birmingham: "Birmingham",
@@ -97,21 +197,27 @@ export const cityTranslations = {
         Barcelona: "Barcelona",
         Istanbul: "Istanbul",
 
+        // =========================
         // Africa
+        // =========================
         Nairobi: "Nairobi",
         Mauritius: "Mauritius",
         AddisAbaba: "Addis Ababa",
         Johannesburg: "Johannesburg",
         CapeTown: "Cape Town",
 
+        // =========================
         // North America
+        // =========================
         NewYork: "New York",
         Chicago: "Chicago",
         Washington: "Washington",
         Toronto: "Toronto",
         Vancouver: "Vancouver",
 
+        // =========================
         // Oceania
+        // =========================
         Sydney: "Sydney",
         Melbourne: "Melbourne",
         Perth: "Perth",
@@ -119,6 +225,9 @@ export const cityTranslations = {
     },
 
     hi: {
+        // =========================
+        // India
+        // =========================
         Delhi: "दिल्ली",
         Mumbai: "मुंबई",
         Bengaluru: "बेंगलुरु",
@@ -160,6 +269,99 @@ export const cityTranslations = {
         Shillong: "शिलांग",
         PortBlair: "पोर्ट ब्लेयर",
 
+        // Additional Indian airport cities
+        Agra: "आगरा",
+        Agatti: "अगत्ती",
+        Aligarh: "अलीगढ़",
+        Amravati: "अमरावती",
+        Aurangabad: "औरंगाबाद",
+        Ayodhya: "अयोध्या",
+        Azamgarh: "आजमगढ़",
+        Bagdogra: "बागडोगरा",
+        Bareilly: "बरेली",
+        Belagavi: "बेळगावी",
+        Bhavnagar: "भावनगर",
+        Bidar: "बीदर",
+        Bilaspur: "बिलासपुर",
+        CoochBehar: "कूच बिहार",
+        Daman: "दमन",
+        Darbhanga: "दरभंगा",
+        Deoghar: "देवघर",
+        Dibrugarh: "डिब्रूगढ़",
+        Dimapur: "दीमापुर",
+        Diu: "दीव",
+        Durgapur: "दुर्गापुर",
+        Gaya: "गया",
+        Gondia: "गोंदिया",
+        Gorakhpur: "गोरखपुर",
+        Gwalior: "ग्वालियर",
+        Ghaziabad: "गाजियाबाद",
+        Hisar: "हिसार",
+        Hubballi: "हुब्बल्ली",
+        Itanagar: "ईटानगर",
+        Jabalpur: "जबलपुर",
+        Jagdalpur: "जगदलपुर",
+        Jaisalmer: "जैसलमेर",
+        Jalgaon: "जलगांव",
+        Jamnagar: "जामनगर",
+        Jamshedpur: "जमशेदपुर",
+        Jeypore: "जयपुर",
+        Jharsuguda: "झारसुगुड़ा",
+        Jhansi: "झांसी",
+        Jorhat: "जोरहाट",
+        Kadapa: "कडपा",
+        Kalaburagi: "कलाबुरगी",
+        Kandla: "कांडला",
+        Kangra: "कांगड़ा",
+        Kannur: "कन्नूर",
+        Keshod: "केशोद",
+        Khajuraho: "खजुराहो",
+        Kishangarh: "किशनगढ़",
+        Kolhapur: "कोल्हापुर",
+        Kullu: "कुल्लू",
+        Kurnool: "कुरनूल",
+        Kushinagar: "कुशीनगर",
+        Leh: "लेह",
+        Lilabari: "लीलाबाड़ी",
+        Ludhiana: "लुधियाना",
+        Moradabad: "मुरादाबाद",
+        Mundra: "मुंद्रा",
+        Mysuru: "मैसूरु",
+        Nashik: "नासिक",
+        NaviMumbai: "नवी मुंबई",
+        Noida: "नोएडा",
+        NorthLakhimpur: "उत्तर लखीमपुर",
+        Ozar: "ओझर",
+        Pakyong: "पाक्योंग",
+        Pantnagar: "पंतनगर",
+        Pathankot: "पठानकोट",
+        Patiala: "पटियाला",
+        Pithoragarh: "पिथौरागढ़",
+        Porbandar: "पोरबंदर",
+        Puducherry: "पुडुचेरी",
+        Raipur: "रायपुर",
+        Rajahmundry: "राजमुंदरी",
+        Rewa: "रीवा",
+        Rourkela: "राउरकेला",
+        Rupsi: "रूपसी",
+        Salem: "सेलम",
+        Saharanpur: "सहारनपुर",
+        Shirdi: "शिरडी",
+        Shimla: "शिमला",
+        Shivamogga: "शिवमोग्गा",
+        Silchar: "सिलचर",
+        Sindhudurg: "सिंधुदुर्ग",
+        Solapur: "सोलापुर",
+        Tezu: "तेजु",
+        Thoothukudi: "तूतीकोरिन",
+        Tirupati: "तिरुपति",
+        Tuticorin: "तूतीकोरिन",
+        Vijayapura: "विजयपुरा",
+        Warangal: "वारंगल",
+
+        // =========================
+        // Middle East
+        // =========================
         Dubai: "दुबई",
         "Abu Dhabi": "अबू धाबी",
         Sharjah: "शारजाह",
@@ -171,6 +373,9 @@ export const cityTranslations = {
         Jeddah: "जेद्दा",
         Dammam: "दम्माम",
 
+        // =========================
+        // Asia
+        // =========================
         Singapore: "सिंगापुर",
         Bangkok: "बैंकॉक",
         Phuket: "फुकेत",
@@ -191,6 +396,9 @@ export const cityTranslations = {
         Tokyo: "टोक्यो",
         Osaka: "ओसाका",
 
+        // =========================
+        // Europe
+        // =========================
         London: "लंदन",
         Paris: "पेरिस",
         Amsterdam: "एम्स्टर्डम",
@@ -202,16 +410,30 @@ export const cityTranslations = {
         Barcelona: "बार्सिलोना",
         Istanbul: "इस्तांबुल",
 
+        // =========================
+        // Africa
+        // =========================
         Nairobi: "नैरोबी",
         Mauritius: "मॉरीशस",
+
+        // =========================
+        // North America
+        // =========================
+        NewYork: "न्यूयॉर्क",
+        Toronto: "टोरंटो",
+
+        // =========================
+        // Oceania
+        // =========================
         Sydney: "सिडनी",
         Melbourne: "मेलबर्न",
-        Auckland: "ऑकलैंड",
-        NewYork: "न्यूयॉर्क",
-        Toronto: "टोरंटो"
+        Auckland: "ऑकलैंड"
     },
 
     mr: {
+        // =========================
+        // India
+        // =========================
         Delhi: "दिल्ली",
         Mumbai: "मुंबई",
         Bengaluru: "बेंगळुरू",
@@ -253,6 +475,99 @@ export const cityTranslations = {
         Shillong: "शिलाँग",
         PortBlair: "पोर्ट ब्लेअर",
 
+        // Additional Indian airport cities
+        Agra: "आग्रा",
+        Agatti: "अगत्ती",
+        Aligarh: "अलीगड",
+        Amravati: "अमरावती",
+        Aurangabad: "औरंगाबाद",
+        Ayodhya: "अयोध्या",
+        Azamgarh: "आझमगड",
+        Bagdogra: "बागडोगरा",
+        Bareilly: "बरेली",
+        Belagavi: "बेळगावी",
+        Bhavnagar: "भावनगर",
+        Bidar: "बिदर",
+        Bilaspur: "बिलासपूर",
+        CoochBehar: "कूचबिहार",
+        Daman: "दमण",
+        Darbhanga: "दरभंगा",
+        Deoghar: "देवघर",
+        Dibrugarh: "डिब्रूगड",
+        Dimapur: "दिमापूर",
+        Diu: "दीव",
+        Durgapur: "दुर्गापूर",
+        Gaya: "गया",
+        Gondia: "गोंदिया",
+        Gorakhpur: "गोरखपूर",
+        Gwalior: "ग्वाल्हेर",
+        Ghaziabad: "गाझियाबाद",
+        Hisar: "हिसार",
+        Hubballi: "हुबळी",
+        Itanagar: "इटानगर",
+        Jabalpur: "जबलपूर",
+        Jagdalpur: "जगदलपूर",
+        Jaisalmer: "जैसलमेर",
+        Jalgaon: "जळगाव",
+        Jamnagar: "जामनगर",
+        Jamshedpur: "जमशेदपूर",
+        Jeypore: "जेपोर",
+        Jharsuguda: "झारसुगुडा",
+        Jhansi: "झाशी",
+        Jorhat: "जोरहाट",
+        Kadapa: "कडपा",
+        Kalaburagi: "कलबुरगी",
+        Kandla: "कांडला",
+        Kangra: "कांगडा",
+        Kannur: "कन्नूर",
+        Keshod: "केशोद",
+        Khajuraho: "खजुराहो",
+        Kishangarh: "किशनगड",
+        Kolhapur: "कोल्हापूर",
+        Kullu: "कुल्लू",
+        Kurnool: "कुर्नूल",
+        Kushinagar: "कुशीनगर",
+        Leh: "लेह",
+        Lilabari: "लीलाबारी",
+        Ludhiana: "लुधियाना",
+        Moradabad: "मुरादाबाद",
+        Mundra: "मुंद्रा",
+        Mysuru: "म्हैसूर",
+        Nashik: "नाशिक",
+        NaviMumbai: "नवी मुंबई",
+        Noida: "नोएडा",
+        NorthLakhimpur: "उत्तर लखीमपूर",
+        Ozar: "ओझर",
+        Pakyong: "पाक्योंग",
+        Pantnagar: "पंतनगर",
+        Pathankot: "पठाणकोट",
+        Patiala: "पटियाळा",
+        Pithoragarh: "पिथौरागढ",
+        Porbandar: "पोरबंदर",
+        Puducherry: "पुडुचेरी",
+        Raipur: "रायपूर",
+        Rajahmundry: "राजमहेंद्रवरम्",
+        Rewa: "रीवा",
+        Rourkela: "राउरकेला",
+        Rupsi: "रुपसी",
+        Salem: "सेलम",
+        Saharanpur: "सहारनपूर",
+        Shirdi: "शिर्डी",
+        Shimla: "शिमला",
+        Shivamogga: "शिवमोग्गा",
+        Silchar: "सिलचर",
+        Sindhudurg: "सिंधुदुर्ग",
+        Solapur: "सोलापूर",
+        Tezu: "तेझू",
+        Thoothukudi: "तूतीकोरिन",
+        Tirupati: "तिरुपती",
+        Tuticorin: "तूतीकोरिन",
+        Vijayapura: "विजयपूर",
+        Warangal: "वारंगल",
+
+        // =========================
+        // Middle East
+        // =========================
         Dubai: "दुबई",
         "Abu Dhabi": "अबू धाबी",
         Sharjah: "शारजाह",
@@ -264,6 +579,9 @@ export const cityTranslations = {
         Jeddah: "जेद्दा",
         Dammam: "दम्माम",
 
+        // =========================
+        // Asia
+        // =========================
         Singapore: "सिंगापूर",
         Bangkok: "बँकॉक",
         Phuket: "फुकेट",
@@ -284,23 +602,48 @@ export const cityTranslations = {
         Tokyo: "टोकियो",
         Osaka: "ओसाका",
 
+        // =========================
+        // Europe
+        // =========================
         London: "लंडन",
         Paris: "पॅरिस",
         Amsterdam: "अॅमस्टरडॅम",
         Frankfurt: "फ्रांकफुर्ट",
         Munich: "म्युनिक",
         Zurich: "झ्युरिक",
+        Vienna: "व्हिएन्ना",
         Rome: "रोम",
+        Milan: "मिलान",
         Madrid: "माद्रिद",
         Barcelona: "बार्सिलोना",
         Istanbul: "इस्तंबूल",
+        Manchester: "मँचेस्टर",
+        Birmingham: "बर्मिंगहॅम",
 
+        // =========================
+        // Africa
+        // =========================
         Nairobi: "नैरोबी",
         Mauritius: "मॉरिशस",
+        AddisAbaba: "अ‍ॅडिस अबाबा",
+        Johannesburg: "जोहान्सबर्ग",
+        CapeTown: "केप टाउन",
+
+        // =========================
+        // North America
+        // =========================
+        NewYork: "न्यूयॉर्क",
+        Chicago: "शिकागो",
+        Washington: "वॉशिंग्टन",
+        Toronto: "टोरोंटो",
+        Vancouver: "व्हँकुव्हर",
+
+        // =========================
+        // Oceania
+        // =========================
         Sydney: "सिडनी",
         Melbourne: "मेलबर्न",
-        Auckland: "ऑकलंड",
-        NewYork: "न्यूयॉर्क",
-        Toronto: "टोरोंटो"
+        Perth: "पर्थ",
+        Auckland: "ऑकलंड"
     }
 };
