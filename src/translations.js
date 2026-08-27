@@ -20,7 +20,12 @@ export const translations = {
             delayed: (eta) => (eta ? `Now at ${eta}` : "Delayed"),
             boarding: "Boarding",
             gateOpen: "Gate Open",
-            gateClosed: "Gate Closed"
+            gateClosed: "Gate Closed",
+            checkInOpen: "Check-in Open",
+            checkInClosed: "Check-in Closed",
+            finalCall: "Final Call",
+            securityCheck: "Security Check",
+            departed: "Departed"
         },
         live: "LIVE DISPLAY"
     },
@@ -45,7 +50,12 @@ export const translations = {
             delayed: (eta) => (eta ? `निर्धारित ${eta}` : "निर्धारित"),
             boarding: "बोर्डिंग चालू",
             gateOpen: "द्वार खुला",
-            gateClosed: "द्वार बंद"
+            gateClosed: "द्वार बंद",
+            checkInOpen: "चेक-इन खुला",
+            checkInClosed: "चेक-इन बंद",
+            finalCall: "अंतिम कॉल",
+            securityCheck: "सुरक्षा जांच",
+            departed: "प्रस्थान कर चुका"
         },
         live: "लाइव प्रदर्शन"
     },
@@ -70,7 +80,12 @@ export const translations = {
             delayed: (eta) => (eta ? `आता ${eta}` : "आता"),
             boarding: "बोर्डिंग सुरू",
             gateOpen: "द्वार उघडले",
-            gateClosed: "द्वार बंद"
+            gateClosed: "द्वार बंद",
+            checkInOpen: "चेक-इन उघडे",
+            checkInClosed: "चेक-इन बंद",
+            finalCall: "अंतिम कॉल",
+            securityCheck: "सुरक्षा तपासणी",
+            departed: "प्रस्थान केले"
         },
         live: "थेट प्रदर्शन"
     }

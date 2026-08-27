@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./FlightBoard.css";
-import { cityTranslations } from "./citytranslations";
 import { translations } from "./translations";
 import { airlineLogoMap } from "./AirlineLogo";
+import {
+  getCachedCityTranslation,
+  getStaticCityTranslation,
+  translateCityWithCache,
+} from "./cityTranslationService";
 const languageOrder = ["en", "hi", "mr"];
+const ROWS_PER_PAGE = 25;
+const DATA_PAGE_INTERVAL = 15 * 1000;
 
 export default function FlightBoard() {
   const [flightData, setFlightData] = useState([]);
@@ -15,6 +21,8 @@ export default function FlightBoard() {
 
   const [langIndex, setLangIndex] = useState(0);
   const [switchInterval, setSwitchInterval] = useState(10 * 1000); // 10 seconds default
+  const [translatedCities, setTranslatedCities] = useState({});
+  const [dataPage, setDataPage] = useState(0);
 
   // 1. Parse URL Parameters (?type=arrival|departure & ?variant=domestic|international & ?interval=10000 & ?lang=en|hi|mr)
   useEffect(() => {
@@ -92,6 +100,7 @@ export default function FlightBoard() {
 
     setLoading(true);
     setError(null);
+    setDataPage(0);
 
     fetch(preferredFileName)
       .then((response) => {
@@ -109,6 +118,20 @@ export default function FlightBoard() {
         setLoading(false);
       });
   }, [boardType, boardVariant]);
+
+  useEffect(() => {
+    if (flightData.length <= ROWS_PER_PAGE) {
+      setDataPage(0);
+      return undefined;
+    }
+
+    const pageCount = Math.ceil(flightData.length / ROWS_PER_PAGE);
+    const pageTimer = setInterval(() => {
+      setDataPage((currentPage) => (currentPage + 1) % pageCount);
+    }, DATA_PAGE_INTERVAL);
+
+    return () => clearInterval(pageTimer);
+  }, [flightData]);
 
   // 4. Real-time Clock
   useEffect(() => {
@@ -140,16 +163,51 @@ export default function FlightBoard() {
       minute: "2-digit",
     });
 
-  // const translateCityName = (cityName) => {
-  //     if (!cityName) return '-';
-  //     return cityTranslations[currentLang]?.[cityName] ?? '';
-  // };
-
   const translateCityName = (cityName) => {
     if (!cityName) return "-";
 
-    return cityTranslations[currentLang]?.[cityName] ?? cityName;
+    return (
+      getStaticCityTranslation(cityName, currentLang) ||
+      getCachedCityTranslation(cityName, currentLang) ||
+      translatedCities[`${currentLang}:${cityName}`] ||
+      cityName
+    );
   };
+
+  useEffect(() => {
+    const cityNames = flightData
+      .map((item) => (boardType === "departure" ? item.Destination : item.Origin))
+      .filter(Boolean);
+
+    const missingCities = [...new Set(cityNames)].filter(
+      (cityName) =>
+        !getStaticCityTranslation(cityName, currentLang) &&
+        !getCachedCityTranslation(cityName, currentLang),
+    );
+
+    if (missingCities.length === 0) return undefined;
+
+    let isActive = true;
+    Promise.all(
+      missingCities.map(async (cityName) => [
+        `${currentLang}:${cityName}`,
+        await translateCityWithCache(cityName, currentLang),
+      ]),
+    ).then((results) => {
+      if (isActive) {
+        setTranslatedCities((previous) => ({
+          ...previous,
+          ...Object.fromEntries(results),
+        }));
+      }
+    });
+
+    return () => {
+      isActive = false;
+    };
+  }, [boardType, currentLang, flightData]);
+
+  const displayValue = (value) => value || "-";
 
   const getStatusText = (status, eta) => {
     switch (status) {
@@ -163,8 +221,18 @@ export default function FlightBoard() {
         return t.status.gateOpen;
       case "Gate Closed":
         return t.status.gateClosed;
+      case "Check-in Open":
+        return t.status.checkInOpen;
+      case "Check-in Closed":
+        return t.status.checkInClosed;
+      case "Final Call":
+        return t.status.finalCall;
+      case "Security Check":
+        return t.status.securityCheck;
+      case "Departed":
+        return t.status.departed;
       default:
-        return t.status.onTime;
+        return displayValue(status);
     }
   };
 
@@ -173,7 +241,7 @@ export default function FlightBoard() {
     const match = flight.trim().match(/^([A-Z0-9]{2,3})/i);
     if (!match) return null;
     const code = match[1].toLowerCase();
-    const logoFile = airlineLogoMap[code];
+    const logoFile = airlineLogoMap[code[0] + code[1]] || airlineLogoMap[code];
     return logoFile ? `${import.meta.env.BASE_URL}img/${logoFile}` : null;
   };
 
@@ -212,14 +280,26 @@ export default function FlightBoard() {
         return "status-early";
       case "Delayed":
         return "status-delayed";
+      case "Check-in Closed":
+      case "Gate Closed":
+        return "status-delayed";
+      case "Final Call":
+        return "status-final-call";
+      case "Security Check":
+      case "Check-in Open":
+      case "Gate Open":
+        return "status-early";
+      case "Departed":
+        return "status-departed";
       default:
-        return "";
+        return "status-default";
     }
   };
 
+  const pageStart = dataPage * ROWS_PER_PAGE;
   const displayRows = Array.from(
-    { length: 25 },
-    (_, index) => flightData[index],
+    { length: ROWS_PER_PAGE },
+    (_, index) => flightData[pageStart + index],
   );
 
   return (
@@ -282,20 +362,38 @@ export default function FlightBoard() {
                 >
                   {item ? (
                     <>
-                      {renderAirlineBadge(item.Airline, item.Flight)}
-                      <div className="flight-code">{item.Flight}</div>
-                      <div className="flight-time">{item.Time}</div>
-                      <div className="flight-origin">
-                        {translateCityName(
-                          boardType === "departure"
-                            ? item.Destination
-                            : item.Origin,
-                        )}
+                      {renderAirlineBadge(
+                        displayValue(item.Airline || item["Airline Name"]),
+                        item.Flight,
+                      )}
+                      <div className="flight-code" data-label={t.headers.flight}>
+                        {displayValue(item.Flight)}
                       </div>
-                      <div className="flight-gate">
-                        {boardType === "departure" ? item.Gate : item.ETA}
+                      <div className="flight-time" data-label={t.headers.time}>
+                        {displayValue(item.Time ? item.Time.split(" ").pop() : "")}
                       </div>
-                      <div className={getStatusClass(item.Status)}>
+                      <div className={`flight-origin-scroll${translateCityName(
+                        boardType === "departure"
+                          ? item.Destination
+                          : item.Origin,
+                      ).length > 16 ? " is-long" : ""}`}>
+                        <span className="flight-field-label">
+                          {boardType === "departure"
+                            ? t.headers.locationDeparture
+                            : t.headers.locationArrival}
+                        </span>
+                        <span className="flight-origin-text">
+                          {translateCityName(
+                            boardType === "departure"
+                              ? item.Destination
+                              : item.Origin,
+                          )}
+                        </span>
+                      </div>
+                      <div className="flight-gate" data-label={boardType === "departure" ? t.headers.gate : t.headers.eta}>
+                        {displayValue(boardType === "departure" ? item.Gate : item.ETA)}
+                      </div>
+                      <div className={getStatusClass(item.Status)} data-label={t.headers.status}>
                         {getStatusText(item.Status, item.ETA)}
                       </div>
                     </>
@@ -320,6 +418,6 @@ export default function FlightBoard() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
