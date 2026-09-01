@@ -10,6 +10,7 @@ import {
 const languageOrder = ["en", "hi", "mr"];
 const ROWS_PER_PAGE = 25;
 const DATA_PAGE_INTERVAL = 15 * 1000;
+import gateTranslate from "../public/gateTranslate.json";
 
 export default function FlightBoard() {
   const [flightData, setFlightData] = useState([]);
@@ -158,7 +159,7 @@ export default function FlightBoard() {
       year: "numeric",
     }) +
     " " +
-    currentTime.toLocaleTimeString("en-GB", {
+    currentTime.toLocaleTimeString(localeMap[currentLang], {
       hour: "2-digit",
       minute: "2-digit",
     });
@@ -176,7 +177,9 @@ export default function FlightBoard() {
 
   useEffect(() => {
     const cityNames = flightData
-      .map((item) => (boardType === "departure" ? item.Destination : item.Origin))
+      .map((item) =>
+        boardType === "departure" ? item.Destination : item.Origin,
+      )
       .filter(Boolean);
 
     const missingCities = [...new Set(cityNames)].filter(
@@ -211,6 +214,8 @@ export default function FlightBoard() {
 
   const getStatusText = (status, eta) => {
     switch (status) {
+      case "On Time":
+        return t.status.onTime;
       case "Delayed":
         return t.status.delayed(eta);
       case "Early":
@@ -231,6 +236,8 @@ export default function FlightBoard() {
         return t.status.securityCheck;
       case "Departed":
         return t.status.departed;
+      case "Cancel":
+        return t.status.cancel;
       default:
         return displayValue(status);
     }
@@ -240,7 +247,7 @@ export default function FlightBoard() {
     if (!flight) return null;
     const match = flight.trim().match(/^([A-Z0-9]{2,3})/i);
     if (!match) return null;
-    const code = match[1].toLowerCase();
+    const code = match[0].toLowerCase();
     const logoFile = airlineLogoMap[code[0] + code[1]] || airlineLogoMap[code];
     return logoFile ? `${import.meta.env.BASE_URL}img/${logoFile}` : null;
   };
@@ -273,7 +280,7 @@ export default function FlightBoard() {
 
   const getStatusClass = (status) => {
     switch (status) {
-      case "On Time":
+      case "onTime":
         return "status-on-time";
       case "Early":
       case "Boarding":
@@ -325,6 +332,7 @@ export default function FlightBoard() {
               {boardType === "departure" ? t.headers.gate : t.headers.eta}
             </div>
             <div>{t.headers.status}</div>
+            <div>{t.headers.extraInfo}</div>
           </div>
 
           {/* Flight Data List */}
@@ -366,17 +374,28 @@ export default function FlightBoard() {
                         displayValue(item.Airline || item["Airline Name"]),
                         item.Flight,
                       )}
-                      <div className="flight-code" data-label={t.headers.flight}>
+                      <div
+                        className="flight-code"
+                        data-label={t.headers.flight}
+                      >
                         {displayValue(item.Flight)}
                       </div>
                       <div className="flight-time" data-label={t.headers.time}>
-                        {displayValue(item.Time ? item.Time.split(" ").pop() : "")}
+                        {displayValue(
+                          item.Time ? item.Time.split(" ").pop() : "",
+                        )}
                       </div>
-                      <div className={`flight-origin-scroll${translateCityName(
-                        boardType === "departure"
-                          ? item.Destination
-                          : item.Origin,
-                      ).length > 16 ? " is-long" : ""}`}>
+                      <div
+                        className={`flight-origin-scroll${
+                          translateCityName(
+                            boardType === "departure"
+                              ? item.Destination
+                              : item.Origin,
+                          ).length > 16
+                            ? " is-long"
+                            : ""
+                        }`}
+                      >
                         <span className="flight-field-label">
                           {boardType === "departure"
                             ? t.headers.locationDeparture
@@ -390,11 +409,82 @@ export default function FlightBoard() {
                           )}
                         </span>
                       </div>
-                      <div className="flight-gate" data-label={boardType === "departure" ? t.headers.gate : t.headers.eta}>
-                        {displayValue(boardType === "departure" ? item.Gate : item.ETA)}
-                      </div>
-                      <div className={getStatusClass(item.Status)} data-label={t.headers.status}>
+
+                      {(() => {
+                        const gateOrEta = displayValue(
+                          boardType === "departure" ? item.Gate : item.ETA,
+                        );
+                        const displayedValue =
+                          gateTranslate[gateOrEta] ||
+                          item.Gate ||
+                          item.ETA ||
+                          "-";
+                        return (
+                          <div
+                            className={`flight-origin-scroll${
+                              displayedValue.length > 5 ? " is-long" : ""
+                            }`}
+                            data-label={
+                              boardType === "departure"
+                                ? t.headers.gate
+                                : t.headers.eta
+                            }
+                          >
+                            <span className="flight-origin-text">
+                              {displayedValue}
+                            </span>
+                          </div>
+                        );
+                      })()}
+
+                      {/* <div
+                        className="flight-gate"
+                        data-label={
+                          boardType === "departure"
+                            ? t.headers.gate
+                            : t.headers.eta
+                        }
+                      >
+                        {displayValue(
+                          boardType === "departure" ? item.Gate : item.ETA,
+                        )}
+                      </div> */}
+
+                      {/* <div
+                        className={getStatusClass(item.Status)}
+                        data-label={t.headers.status}
+                      >
                         {getStatusText(item.Status, item.ETA)}
+                      </div> */}
+
+                      <div
+                        className={`flight-origin-scroll${
+                          displayValue(item.Status).length > 14
+                            ? " is-long"
+                            : ""
+                        }`}
+                      >
+                        <span className="flight-field-label">
+                          {t.headers.status}
+                        </span>
+                        <span className="flight-origin-text">
+                          {getStatusText(item.Status, item.ETA)}
+                        </span>
+                      </div>
+
+                      <div
+                        className={`flight-origin-scroll${
+                          displayValue(item.ExtraInfo).length > 16
+                            ? " is-long"
+                            : ""
+                        }`}
+                      >
+                        <span className="flight-field-label">
+                          {t.headers.extraInfo}
+                        </span>
+                        <span className="flight-origin-text">
+                          {displayValue(item.ExtraInfo)}
+                        </span>
                       </div>
                     </>
                   ) : (
@@ -418,6 +508,6 @@ export default function FlightBoard() {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }

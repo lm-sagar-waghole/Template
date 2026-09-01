@@ -1,42 +1,42 @@
 [
-    {
-        "Airline": "IndiGo",
-        "Flight": "6E 1452",
-        "Time": "16:50",
-        "Origin": "Mumbai",
-        "ETA": "16:35",
-        "Status": "On Time"
-    },
-    {
-        "Airline": "Spicejet",
-        "Flight": "SG 060",
-        "Time": "17:15",
-        "Origin": "Delhi",
-        "ETA": "16:36",
-        "Status": "Early"
-    },
-    {
-        "Airline": "Akasa Air",
-        "Flight": "QP 585",
-        "Time": "19:40",
-        "Origin": "Bengaluru",
-        "ETA": "19:40",
-        "Status": "On Time"
-    },
-    {
-        "Airline": "IndiGo",
-        "Flight": "6E 1822",
-        "Time": "17:30",
-        "Origin": "Hyderabad",
-        "ETA": "17:30",
-        "Status": "On Time"
-    },
-    {
-        "Airline": "Air India",
-        "Flight": "AI 910",
-        "Time": "16:25",
-        "Origin": "Chennai",
-        "ETA": "16:38",
-        "Status": "On Time"
-    }
+  {
+    "Airline": "IndiGo",
+    "Flight": "6E 1452",
+    "Time": "16:50",
+    "Origin": "Mumbai",
+    "ETA": "16:35",
+    "Status": "onTime"
+  },
+  {
+    "Airline": "Spicejet",
+    "Flight": "SG 060",
+    "Time": "17:15",
+    "Origin": "Delhi",
+    "ETA": "16:36",
+    "Status": "Early"
+  },
+  {
+    "Airline": "Akasa Air",
+    "Flight": "QP 585",
+    "Time": "19:40",
+    "Origin": "Bengaluru",
+    "ETA": "19:40",
+    "Status": "onTime"
+  },
+  {
+    "Airline": "IndiGo",
+    "Flight": "6E 1822",
+    "Time": "17:30",
+    "Origin": "Hyderabad",
+    "ETA": "17:30",
+    "Status": "onTime"
+  },
+  {
+    "Airline": "Air India",
+    "Flight": "AI 910",
+    "Time": "16:25",
+    "Origin": "Chennai",
+    "ETA": "16:38",
+    "Status": "onTime"
+  }
 ]

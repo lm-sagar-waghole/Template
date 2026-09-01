@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Comfortaa";
-  src: url("./assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf") format("truetype");
+  src: url("./assets/fonts/Comfortaa/static/Comfortaa-Bold.ttf")
+    format("truetype");
   font-weight: bolder;
   font-style: normal;
   font-display: swap;
@@ -73,9 +74,9 @@ body {
 }
 
 .screen-title {
-  font-size: clamp(1.35rem, 4.2vw, 4.5rem);
+  font-size: 8.5vw;
   color: #14367e;
-  margin: clamp(0.35rem, 2.5vh, 2rem) 1rem;
+  margin: 1vw;
   font-weight: 600;
   line-height: 1.1;
 }
@@ -83,7 +84,9 @@ body {
 /* Column Grid Layout */
 .flight-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 0.65fr) minmax(0, 1.2fr) minmax(0, 0.7fr) minmax(0, 1.2fr);
+  grid-template-columns:
+    minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 0.65fr)
+    minmax(0, 1.2fr) minmax(0, 0.7fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
   align-items: center;
   padding: 0 clamp(0.35rem, 1.2vw, 1rem);
   text-align: left;
@@ -121,7 +124,9 @@ body {
 .flight-row {
   flex: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 0.65fr) minmax(0, 1.2fr) minmax(0, 0.7fr) minmax(0, 1.2fr);
+  grid-template-columns:
+    minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 0.65fr)
+    minmax(0, 1.2fr) minmax(0, 0.7fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
   align-items: center;
   gap: clamp(0.2rem, 0.6vw, 0.6rem);
   /* padding: 0px 0px 0px 15px; */
@@ -328,12 +333,12 @@ np .airline-logo-cell {
     scrollbar-width: thin;
   }
 
-  .flight-row>div,
-  .flight-row>span {
+  .flight-row > div,
+  .flight-row > span {
     min-width: 0;
   }
 
-  .flight-row>div:not(.flight-origin-scroll)::before {
+  .flight-row > div:not(.flight-origin-scroll)::before {
     content: attr(data-label);
     display: block;
     color: #a5c7ff;
@@ -342,7 +347,7 @@ np .airline-logo-cell {
     margin-bottom: 0.1rem;
   }
 
-  .flight-row> :first-child::after {
+  .flight-row > :first-child::after {
     content: "Airline";
     display: block;
     color: #a5c7ff;
@@ -404,7 +409,6 @@ np .airline-logo-cell {
 }
 
 @keyframes flight-origin-marquee {
-
   0%,
   15% {
     transform: translateX(0);
