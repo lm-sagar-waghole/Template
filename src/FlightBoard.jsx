@@ -216,6 +216,8 @@ export default function FlightBoard() {
     switch (status) {
       case "On Time":
         return t.status.onTime;
+      case "onTime":
+        return t.status.onTime;
       case "Delayed":
         return t.status.delayed(eta);
       case "Early":
@@ -459,7 +461,7 @@ export default function FlightBoard() {
 
                       <div
                         className={`flight-origin-scroll${
-                          displayValue(item.Status).length > 14
+                          displayValue(item.Status).length > 12
                             ? " is-long"
                             : ""
                         }`}

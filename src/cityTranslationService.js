@@ -1,4 +1,4 @@
-import { cityTranslations } from "./citytranslations";
+import { cityTranslations } from "../public/citytranslations";
 
 const CACHE_KEY = "fids-city-translation-cache";
 
