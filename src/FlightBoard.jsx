@@ -10,7 +10,7 @@ import {
 const languageOrder = ["en", "hi", "mr"];
 const ROWS_PER_PAGE = 25;
 const DATA_PAGE_INTERVAL = 15 * 1000;
-import gateTranslate from "../public/gateTranslate.json";
+import gateTranslate from "../public/gatetranslate.json";
 
 export default function FlightBoard() {
   const [flightData, setFlightData] = useState([]);
@@ -211,6 +211,53 @@ export default function FlightBoard() {
   }, [boardType, currentLang, flightData]);
 
   const displayValue = (value) => value || "-";
+
+  const getGateText = (gate) => {
+    if (!gate) return "-";
+    if (currentLang !== "hi" && currentLang !== "mr") return gate;
+    return gateTranslate[currentLang]?.[gate] || gate;
+  };
+
+  const formatEta = (eta) => {
+    if (!eta || currentLang === "en") return eta || "-";
+
+    const match = eta.match(
+      /^(\d{1,2})-([A-Za-z]{3})-(\d{4})\s+(\d{1,2}):(\d{2})$/,
+    );
+    if (!match) return eta;
+
+    const monthIndex = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ].indexOf(match[2]);
+    if (monthIndex < 0) return eta;
+
+    const date = new Date(
+      Number(match[3]),
+      monthIndex,
+      Number(match[1]),
+      Number(match[4]),
+      Number(match[5]),
+    );
+    return date.toLocaleString(localeMap[currentLang], {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    });
+  };
 
   const getStatusText = (status, eta) => {
     switch (status) {
@@ -417,10 +464,9 @@ export default function FlightBoard() {
                           boardType === "departure" ? item.Gate : item.ETA,
                         );
                         const displayedValue =
-                          gateTranslate[gateOrEta] ||
-                          item.Gate ||
-                          item.ETA ||
-                          "-";
+                          boardType === "departure"
+                            ? getGateText(gateOrEta)
+                            : formatEta(item.ETA);
                         return (
                           <div
                             className={`flight-origin-scroll${
@@ -470,7 +516,7 @@ export default function FlightBoard() {
                           {t.headers.status}
                         </span>
                         <span className="flight-origin-text">
-                          {getStatusText(item.Status, item.ETA)}
+                          {getStatusText(item.Status, formatEta(item.ETA))}
                         </span>
                       </div>
 
@@ -506,6 +552,7 @@ export default function FlightBoard() {
           {/* Footer Bar */}
           <div className="screen-footer">
             <div className="live-indicator"></div>
+            {console.log("Time ", formattedDate)}
             <div className="footer-clock">{formattedDate}</div>
           </div>
         </div>
