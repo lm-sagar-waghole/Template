@@ -334,7 +334,7 @@ export default function FlightBoard() {
               {boardType === "departure" ? t.headers.gate : t.headers.eta}
             </div>
             <div>{t.headers.status}</div>
-            <div>{t.headers.extraInfo}</div>
+            {/* <div>{t.headers.extraInfo}</div> */}
           </div>
 
           {/* Flight Data List */}
@@ -461,7 +461,7 @@ export default function FlightBoard() {
 
                       <div
                         className={`flight-origin-scroll${
-                          displayValue(item.Status).length > 12
+                          displayValue(item.Status).length > 20
                             ? " is-long"
                             : ""
                         }`}
@@ -474,7 +474,7 @@ export default function FlightBoard() {
                         </span>
                       </div>
 
-                      <div
+                      {/* <div
                         className={`flight-origin-scroll${
                           displayValue(item.ExtraInfo).length > 16
                             ? " is-long"
@@ -487,7 +487,7 @@ export default function FlightBoard() {
                         <span className="flight-origin-text">
                           {displayValue(item.ExtraInfo)}
                         </span>
-                      </div>
+                      </div> */}
                     </>
                   ) : (
                     <>

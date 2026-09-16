@@ -85,8 +85,8 @@ body {
 .flight-grid {
   display: grid;
   grid-template-columns:
-    minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 0.65fr)
-    minmax(0, 1.2fr) minmax(0, 0.7fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+    minmax(0, 0.8fr) minmax(0, 0.55fr) minmax(0, 0.55fr)
+    minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
   padding: 0 clamp(0.35rem, 1.2vw, 1rem);
   text-align: left;
@@ -125,8 +125,8 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns:
-    minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 0.65fr)
-    minmax(0, 1.2fr) minmax(0, 0.7fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+    minmax(0, 0.8fr) minmax(0, 0.55fr) minmax(0, 0.55fr)
+    minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
   gap: clamp(0.2rem, 0.6vw, 0.6rem);
   /* padding: 0px 0px 0px 15px; */
